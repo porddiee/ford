@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Find more emojis here: https://www.webfx.com/tools/emojis-cheat-sheet/
-st.set-page-config(page_title="College students", page-icon=":tada:", layout="wide")
+st.set_page_config(page_title="College students", page_icon=":tada:", layout="wide")
 
 
 # ---- HEADER SECTION ----
