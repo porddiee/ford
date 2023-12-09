@@ -1,7 +1,4 @@
 import streamlit as st
-import streamlit as st 
-import time
-
 
 # Find more emojis here: https://www.webfx.com/tools/emojis-cheat-sheet/
 st.set_page_config(page_title="College Students", page_icon=":mortar_board:", layout="wide")
