@@ -1,6 +1,5 @@
 import streamlit as st
 import streamlit as st 
-import st_lottie
 import time
 
 
