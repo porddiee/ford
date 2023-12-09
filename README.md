@@ -1,114 +1,49 @@
-import requests
+import streamlit as st
 import streamlit as st
 from streamlit_lottie import st_lottie
-from PIL import Image
+import time
 
 
-# Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
-
-
-def load_lottieurl(url):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-
-
-# Use local CSS
-def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-
-local_css("style/style.css")
+# Find more emojis here: https://www.webfx.com/tools/emojis-cheat-sheet/
+st.set_page_config(page_title="College Students", page_icon=":mortar_board:", layout="wide")
 
 # ---- LOAD ASSETS ----
-lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
-img_contact_form = Image.open("images/yt_contact_form.png")
-img_lottie_animation = Image.open("images/yt_lottie_animation.png")
-
+with st.echo():
+    st_lottie("https://lottie.host/830ba297-eb73-4c04-b34d-c439f6013e91/iKOAFldNRi.json")
+    
 # ---- HEADER SECTION ----
-with st.container():
-    st.subheader("Hi, I am Sven :wave:")
-    st.title("A Data Analyst From Germany")
-    st.write(
-        "I am passionate about finding ways to use Python and VBA to be more efficient and effective in business settings."
-    )
-    st.write("[Learn More >](https://pythonandvba.com)")
+st.subheader("🎓 This is Clifford M. Epis 📚")
+st.title("A student of BSCPE 1B")
+st.write("In today's challenging economic landscape, a significant number of students find themselves grappling with the formidable burden of financial constraints. The pursuit of education, once considered a pathway to personal and professional advancement, has become increasingly intertwined with the harsh reality of economic instability. As tuition fees soar, living costs rise, and the job market remains fiercely competitive, a growing population of students is thrust into the precarious realm of financial hardship.For these students, the pursuit of knowledge is accompanied by a constant juggling act – a delicate balance between academic aspirations and the pressing demands of financial survival. The weight of student loans, coupled with the rising cost of textbooks, housing, and other essential expenses, often casts a looming shadow over the educational journey. As dreams of intellectual growth and academic achievement take root, the specter of financial strain can cast a stifling pallor, obstructing the path to success.The repercussions of this financial struggle extend beyond the immediate challenges of making ends meet. Mental health can bear the brunt of the financial stress, as students grapple with the emotional toll of balancing academic responsibilities with the relentless pressure of financial instability. The strain of living on a tight budget can manifest in anxiety, stress, and a sense of isolation, creating an added layer of complexity to an already demanding academic environment.Moreover, the impact of financial constraints is not confined to the individual student; it reverberates through the broader educational landscape. The potential loss of diverse perspectives and talents is a societal cost that cannot be overlooked, as brilliant minds are forced to navigate a labyrinth of financial hurdles, often deterring them from realizing their full potential.In confronting the multifaceted issue of student financial struggles, it becomes imperative for institutions, policymakers, and society at large to engage in a collective dialogue aimed at fostering a more inclusive and supportive educational environment. By acknowledging and addressing the root causes of financial hardship, we can strive towards creating a future where students can pursue their academic endeavors unencumbered by the burden of financial uncertainty.💸")
 
-# ---- WHAT I DO ----
-with st.container():
-    st.write("---")
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.header("What I do")
-        st.write("##")
-        st.write(
-            """
-            On my YouTube channel I am creating tutorials for people who:
-            - are looking for a way to leverage the power of Python in their day-to-day work.
-            - are struggling with repetitive tasks in Excel and are looking for a way to use Python and VBA.
-            - want to learn Data Analysis & Data Science to perform meaningful and impactful analyses.
-            - are working with Excel and found themselves thinking - "there has to be a better way."
+# ---- ADDITIONAL INFORMATION SECTION ----
+st.header("College Life Challenges")
+st.write("Navigating through college life presents a myriad of challenges, and one significant hurdle is the financial strain that students often face. The following insights shed light on how students can overcome these obstacles:")
+   
+# ---- ANIMATION SECTION ----
+st.header("Overcoming Obstacles 🌟")
+with st.spinner("Exploring ways to overcome financial challenges..."):
+    time.sleep(3)  # Simulating some processing time
+    st.success("Here are some detailed insights into how college students can overcome these obstacles:")
 
-            If this sounds interesting to you, consider subscribing and turning on the notifications, so you don’t miss any content.
-            """
-        )
-        st.write("[YouTube Channel >](https://youtube.com/c/CodingIsFun)")
-    with right_column:
-        st_lottie(lottie_coding, height=300, key="coding")
 
-# ---- PROJECTS ----
-with st.container():
-    st.write("---")
-    st.header("My Projects")
-    st.write("##")
-    image_column, text_column = st.columns((1, 2))
-    with image_column:
-        st.image(img_lottie_animation)
-    with text_column:
-        st.subheader("Integrate Lottie Animations Inside Your Streamlit App")
-        st.write(
-            """
-            Learn how to use Lottie Files in Streamlit!
-            Animations make our web app more engaging and fun, and Lottie Files are the easiest way to do it!
-            In this tutorial, I'll show you exactly how to do it
-            """
-        )
-        st.markdown("[Watch Video...](https://youtu.be/TXSOitGoINE)")
-with st.container():
-    image_column, text_column = st.columns((1, 2))
-    with image_column:
-        st.image(img_contact_form)
-    with text_column:
-        st.subheader("How To Add A Contact Form To Your Streamlit App")
-        st.write(
-            """
-            Want to add a contact form to your Streamlit website?
-            In this video, I'm going to show you how to implement a contact form in your Streamlit app using the free service ‘Form Submit’.
-            """
-        )
-        st.markdown("[Watch Video...](https://youtu.be/FOULV9Xij_8)")
+# ---- LIST OF INSIGHTS WITH DESCRIPTIONS ----
+insights_with_descriptions = [
+    ("Apply for scholarships and grants.", "Seek out and apply for various scholarships and grants available based on your academic achievements, talents, and interests."),
+    ("Create a budget and stick to it.", "Develop a realistic budget that covers your expenses, including tuition, housing, food, and other essentials. Stick to this budget to manage your finances effectively."),
+    ("Explore part-time job opportunities.", "Consider taking on part-time employment to supplement your income. Look for opportunities on or near campus that align with your schedule."),
+    ("Utilize campus resources like financial aid offices.", "Visit your college's financial aid office to explore available resources, such as counseling, emergency funds, or advice on managing student loans."),
+    ("Consider alternative housing options.", "Explore cost-effective housing options, such as sharing accommodation with roommates or considering off-campus housing that may be more affordable."),
+]
 
-# ---- CONTACT ----
-with st.container():
-    st.write("---")
-    st.header("Get In Touch With Me!")
-    st.write("##")
+st.write("### Insights:")
+for insight, description in insights_with_descriptions:
+    st.write(f"- *{insight}*: {description}")
 
-    # Documention: https://formsubmit.co/ !!! CHANGE EMAIL ADDRESS !!!
-    contact_form = """
-    <form action="https://formsubmit.co/YOUR@MAIL.COM" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Your message here" required></textarea>
-        <button type="submit">Send</button>
-    </form>
-    """
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.markdown(contact_form, unsafe_allow_html=True)
-    with right_column:
-        st.empty()
+# ---- CONCLUSION SECTION ----
+st.header("Conclusion 🎓")
+st.write("In conclusion, overcoming financial challenges during college requires a combination of proactive strategies and resource utilization. By applying for scholarships, creating and sticking to a budget, exploring part-time employment, utilizing campus resources, and considering alternative housing options, students can navigate financial hardships successfully. Remember, each step taken brings you closer to a brighter academic future.")
+
+# ---- FOOTER SECTION ----
+st.markdown("---")
+st.info("Connect with me on: https://github.com/porddiee")
