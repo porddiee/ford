@@ -1,7 +1,15 @@
 import streamlit as st
+import streamlit as st
+from streamlit_lottie import st_lottie
+import time
+
 
 # Find more emojis here: https://www.webfx.com/tools/emojis-cheat-sheet/
 st.set_page_config(page_title="College Students", page_icon=":mortar_board:", layout="wide")
+
+# ---- LOAD ASSETS ----
+with st.echo():
+    st_lottie("https://lottie.host/830ba297-eb73-4c04-b34d-c439f6013e91/iKOAFldNRi.json")
     
 # ---- HEADER SECTION ----
 st.subheader("🎓 This is Clifford M. Epis 📚")
